@@ -26,6 +26,19 @@
             <div class="jumbotron">
                 <h1 id="title">{{ col.collection.title }}</h1>
             </div>
+            
+            <div class="container">
+                <div class="card-group">
+                    <item-data class="card shadow text-center" 
+                        v-for="item in col.collection.items" 
+                        v-if="!editFilm.includes(col.collection.items.indexOf(item))" 
+                        :film="item"
+                        :index="col.collection.items.indexOf(item)"
+                        :key="col.collection.items.indexOf(item)">
+                    </item-data>
+                <edit-form v-else :film="item" :index="col.collection.items.indexOf(item)"></edit-form>
+                </div>
+            </div>
 
 
         </div>
@@ -49,10 +62,12 @@
             <!--
                  TODO: Componente item-data
             -->
-            <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-            <script src="js/script.js"></script>
+            
         </script>
         <!-- TODO: Cargar librería VueJS y archivo js/script.js -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="js/script.js"></script>
+
     </body>
 
 </html>
